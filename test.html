@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>CheeseburgerIM - VClass</title>
+    <link rel="icon" type="image/png" href="https://gitee.com/CheeseburgerIM/imagehosting/raw/master/Image/Home/Web_icon.jpg" />
+	<script src="https://cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+</head>
+
+<style>
+    button {
+        display: block;
+        margin: 7px;
+    }
+</style>
+
+<body>
+    <button onclick="login()">用户登录</button>
+    <button onclick="getInfo()">获取个人信息</button>
+    <button onclick="updateInfo()">更新个人信息</button>
+</body>
+
+<script>
+    function login() {
+        var url="http://vclass.api.cheeseburgerim.space/user/api/login?username=panyizhe&password=1234567"
+        fetch(url,{
+            method:'get',
+            credentials:"include"
+        })
+        .then((res)=>res.text())
+        .then((data)=>{
+            console.log("login")
+            console.log(data)
+        });
+    }
+    function getInfo() {
+        var url="http://vclass.api.cheeseburgerim.space/user/api/getInfo?username=panyizhe"
+        fetch(url,{
+            method:'get',
+            credentials:"include"
+        })
+        .then((res)=>res.json())
+        .then((data)=>{
+            console.log("getInfo")
+            console.log(data)
+        });
+    }
+    function updateInfo() {
+        var url="http://vclass.api.cheeseburgerim.space/user/api/updateInfo?username=panyizhe&link=cheeseburgerim.space&grade=2019&address=天津大学&status=同学&name=CheeseburgerIM&subtitle=IMF"
+        fetch(url,{
+            method:'get',
+            credentials:"include"
+        })
+        .then((res)=>res.text())
+        .then((data)=>{
+            console.log("getInfo")
+            console.log(data)
+        });
+    }
+</script>
+
+</html>
